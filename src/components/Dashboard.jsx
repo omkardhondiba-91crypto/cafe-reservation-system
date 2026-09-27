@@ -100,7 +100,7 @@ export default function Dashboard() {
           <div className="logo-icon">☕</div>
           <div>
             <h2>Café Reserve</h2>
-            <span>Management System</span>
+            <span>Table Reservations</span>
           </div>
         </div>
 
@@ -153,12 +153,15 @@ export default function Dashboard() {
           <>
             <div className="page-header">
               <div>
-                <p className="page-label">OVERVIEW</p>
-                <h1>Dashboard</h1>
-                <p>
-                  Welcome back,{" "}
-                  {session?.user?.user_metadata?.full_name || "User"}!
-                </p>
+                <p className="page-label">TODAY AT THE CAFÉ</p>
+
+<h1>Reservation Desk</h1>
+
+<p>
+  Welcome back,{" "}
+  {session?.user?.user_metadata?.full_name || "User"}.
+  Here's what's happening with your reservations.
+</p>
               </div>
 
               <button
@@ -176,7 +179,7 @@ export default function Dashboard() {
               <div className="stat-card">
                 <div className="stat-icon">📋</div>
                 <div>
-                  <span>Total Reservations</span>
+                  <span>All Reservations</span>
                   <strong>{reservations.length}</strong>
                 </div>
               </div>
@@ -184,7 +187,7 @@ export default function Dashboard() {
               <div className="stat-card">
                 <div className="stat-icon">📅</div>
                 <div>
-                  <span>Today's Reservations</span>
+                  <span>Today</span>
                   <strong>{todayReservations.length}</strong>
                 </div>
               </div>
@@ -200,7 +203,7 @@ export default function Dashboard() {
               <div className="stat-card">
                 <div className="stat-icon">👥</div>
                 <div>
-                  <span>Total Customers</span>
+                  <span>Guest</span>
                   <strong>{uniqueCustomers.size}</strong>
                 </div>
               </div>
@@ -209,8 +212,8 @@ export default function Dashboard() {
             <section className="dashboard-section">
               <div className="section-header">
                 <div>
-                  <h2>Reservations</h2>
-                  <p>Manage your café reservations</p>
+                  <h2>Reservation List</h2>
+<p>Your upcoming and recent table bookings</p>
                 </div>
 
                 <span className="reservation-count">
@@ -233,8 +236,8 @@ export default function Dashboard() {
               {!loading && !error && reservations.length === 0 && (
                 <div className="empty-state">
                   <div className="empty-icon">📅</div>
-                  <h3>No reservations yet</h3>
-                  <p>Create your first reservation to get started.</p>
+                  <h3>Your table book is empty</h3>
+<p>Add a reservation and it will appear here.</p>
 
                   <button
                     className="primary-button"

@@ -1,4 +1,23 @@
-/* ===== GLOBAL ===== */
+/* =========================================================
+   CAFÉ RESERVE — GLOBAL
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+:root {
+  --espresso: #2b211c;
+  --coffee: #6f4e37;
+  --coffee-light: #8b684d;
+  --cream: #f7f1e8;
+  --cream-dark: #eee3d3;
+  --paper: #fffdf9;
+  --text: #302923;
+  --muted: #7b7068;
+  --border: #e6ddd2;
+  --success: #47755c;
+  --danger: #a64b43;
+  --shadow: 0 10px 30px rgba(61, 43, 31, 0.08);
+}
 
 * {
   box-sizing: border-box;
@@ -9,12 +28,12 @@ body,
 #root {
   margin: 0;
   min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #f3f4f6;
-  color: #1f2937;
+  font-family: "DM Sans", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
 }
 
 button,
@@ -24,7 +43,7 @@ input {
 
 
 /* =========================================================
-   AUTHENTICATION PAGE
+   AUTHENTICATION
    ========================================================= */
 
 .auth-container {
@@ -33,50 +52,73 @@ input {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  background: #f3f4f6;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(139, 104, 77, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(111, 78, 55, 0.09), transparent 30%),
+    var(--cream);
 }
 
 .auth-card {
   width: 100%;
-  max-width: 430px;
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  max-width: 440px;
+  padding: 42px;
+  background: rgba(255, 253, 249, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 20px 55px rgba(61, 43, 31, 0.12);
 }
 
 .auth-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
+}
+
+.auth-header::before {
+  content: "☕";
+  display: flex;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--espresso);
+  color: #f7e9d5;
+  font-size: 27px;
+  box-shadow: 0 8px 18px rgba(43, 33, 28, 0.18);
 }
 
 .auth-header h1 {
   margin: 0;
-  font-size: 30px;
-  color: #1f2937;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  color: var(--espresso);
+  letter-spacing: -0.5px;
 }
 
 .auth-header p {
   margin: 8px 0 0;
-  color: #6b7280;
+  color: var(--muted);
   font-size: 14px;
 }
 
 .auth-card h2 {
   margin: 0;
-  color: #1f2937;
-  font-size: 24px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 25px;
+  color: var(--espresso);
 }
 
 .auth-subtitle {
-  color: #6b7280;
+  margin: 7px 0 26px;
+  color: var(--muted);
   font-size: 14px;
-  margin: 8px 0 25px;
 }
 
 
-/* ===== FORM ===== */
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
 
 .form-group {
   margin-bottom: 18px;
@@ -85,76 +127,94 @@ input {
 .form-group label {
   display: block;
   margin-bottom: 7px;
-  color: #374151;
+  color: var(--text);
   font-size: 13px;
   font-weight: 600;
 }
 
 .form-group input {
   width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
   outline: none;
+  background: #fff;
+  color: var(--text);
   font-size: 14px;
-  background: white;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: 0.2s ease;
+}
+
+.form-group input:hover {
+  border-color: #cdbda9;
 }
 
 .form-group input:focus {
-  border-color: #374151;
-  box-shadow: 0 0 0 3px rgba(55, 65, 81, 0.1);
+  border-color: var(--coffee);
+  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.10);
 }
 
 .form-group input::placeholder {
-  color: #9ca3af;
+  color: #aaa099;
 }
 
 
-/* ===== AUTH BUTTON ===== */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
-.auth-card form > button {
+.auth-card form > button,
+.reservation-form button {
   width: 100%;
-  padding: 13px;
+  padding: 13px 18px;
   margin-top: 5px;
   border: none;
-  border-radius: 8px;
-  background: #1f2937;
-  color: white;
+  border-radius: 9px;
+  background: var(--espresso);
+  color: #fffaf3;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
-.auth-card form > button:hover {
-  background: #374151;
+.auth-card form > button:hover,
+.reservation-form button:hover {
+  background: var(--coffee);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(61, 43, 31, 0.15);
 }
 
-.auth-card form > button:disabled {
-  opacity: 0.6;
+.auth-card form > button:disabled,
+.reservation-form button:disabled {
+  opacity: 0.55;
   cursor: not-allowed;
+  transform: none;
 }
 
 
-/* ===== AUTH SWITCH ===== */
+/* =========================================================
+   AUTH SWITCH
+   ========================================================= */
 
 .auth-switch {
   margin-top: 25px;
   padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--border);
   text-align: center;
-  color: #6b7280;
+  color: var(--muted);
   font-size: 14px;
 }
 
 .auth-switch button {
+  margin-left: 5px;
   border: none;
   background: transparent;
-  color: #1f2937;
+  color: var(--coffee);
   font-weight: 700;
   cursor: pointer;
-  margin-left: 5px;
 }
 
 .auth-switch button:hover {
@@ -162,122 +222,140 @@ input {
 }
 
 
-/* ===== MESSAGES ===== */
+/* =========================================================
+   MESSAGES
+   ========================================================= */
 
-.error-message {
-  padding: 11px 13px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  background: #fee2e2;
-  color: #b91c1c;
-  border: 1px solid #fecaca;
-  font-size: 13px;
-}
-
+.error-message,
 .success-message {
   padding: 11px 13px;
   margin-bottom: 15px;
   border-radius: 8px;
-  background: #dcfce7;
-  color: #166534;
-  border: 1px solid #bbf7d0;
   font-size: 13px;
 }
 
+.error-message {
+  background: #fbebe9;
+  border: 1px solid #efd0cc;
+  color: var(--danger);
+}
 
-/* ===== LOADING ===== */
+.success-message {
+  background: #eaf4ed;
+  border: 1px solid #cce1d1;
+  color: var(--success);
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
 
 .loading-screen {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f3f4f6;
-  color: #374151;
+  background: var(--cream);
+  color: var(--espresso);
 }
 
 
 /* =========================================================
-   DASHBOARD LAYOUT
+   APPLICATION LAYOUT
    ========================================================= */
 
 .app-layout {
   min-height: 100vh;
   display: flex;
-  background: #f6f7f9;
+  background: #f5efe6;
 }
 
 
-/* ===== SIDEBAR ===== */
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
 
 .sidebar {
-  width: 250px;
+  width: 255px;
   min-height: 100vh;
-  background: #1f2937;
-  color: white;
   display: flex;
   flex-direction: column;
-  padding: 24px 18px;
+  padding: 25px 17px;
+  background: var(--espresso);
+  color: white;
 }
 
 .sidebar-logo {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 5px 8px 30px;
+  padding: 4px 8px 32px;
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
-  background: white;
-  color: #1f2937;
-  border-radius: 10px;
+  width: 43px;
+  height: 43px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  border-radius: 12px;
+  background: #f3e5d3;
+  color: var(--espresso);
+  font-size: 21px;
 }
 
 .sidebar-logo h2 {
   margin: 0;
-  font-size: 18px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 19px;
 }
 
 .sidebar-logo span {
-  font-size: 11px;
-  color: #9ca3af;
+  display: block;
+  margin-top: 2px;
+  color: #b9aca2;
+  font-size: 10px;
 }
 
 
-/* ===== SIDEBAR NAVIGATION ===== */
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .nav-item {
   width: 100%;
-  padding: 12px 14px;
+  padding: 12px 13px;
   border: none;
-  border-radius: 8px;
+  border-radius: 9px;
   background: transparent;
-  color: #d1d5db;
+  color: #cfc5be;
   text-align: left;
   cursor: pointer;
   font-size: 14px;
+  transition: 0.18s ease;
 }
 
-.nav-item:hover,
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+}
+
 .nav-item.active {
-  background: #374151;
+  background: #6f4e37;
   color: white;
 }
 
 
-/* ===== SIDEBAR USER ===== */
+/* =========================================================
+   USER AREA
+   ========================================================= */
 
 .sidebar-bottom {
   margin-top: auto;
@@ -287,21 +365,22 @@ input {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 8px;
-  border-top: 1px solid #374151;
+  padding: 15px 8px;
   margin-bottom: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .user-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: white;
-  color: #1f2937;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  border-radius: 50%;
+  background: #f3e5d3;
+  color: var(--espresso);
+  font-weight: 700;
 }
 
 .user-info strong,
@@ -310,32 +389,33 @@ input {
 }
 
 .user-info strong {
+  color: white;
   font-size: 13px;
 }
 
 .user-info span {
-  font-size: 11px;
-  color: #9ca3af;
   max-width: 155px;
+  margin-top: 2px;
   overflow: hidden;
+  color: #a99e96;
+  font-size: 11px;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
-
-/* ===== LOGOUT ===== */
 
 .logout-button {
   width: 100%;
-  padding: 11px;
-  border: 1px solid #4b5563;
+  padding: 10px;
+  border: 1px solid #51443c;
   border-radius: 8px;
   background: transparent;
-  color: #d1d5db;
+  color: #cfc5be;
   cursor: pointer;
+  transition: 0.18s ease;
 }
 
 .logout-button:hover {
-  background: #374151;
+  background: #342923;
   color: white;
 }
 
@@ -346,53 +426,65 @@ input {
 
 .main-content {
   flex: 1;
-  padding: 35px;
+  min-width: 0;
+  padding: 38px 42px;
   overflow-x: auto;
 }
 
 
-/* ===== PAGE HEADER ===== */
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
 
 .page-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 30px;
 }
 
 .page-label {
-  font-size: 11px;
-  font-weight: bold;
-  color: #6b7280;
-  letter-spacing: 1px;
   margin: 0 0 5px;
+  color: var(--coffee);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
 }
 
 .page-header h1 {
   margin: 0;
-  font-size: 30px;
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--espresso);
+  font-size: 34px;
+  letter-spacing: -0.5px;
 }
 
 .page-header p:last-child {
-  margin: 6px 0 0;
-  color: #6b7280;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 
-/* ===== PRIMARY BUTTON ===== */
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
 
 .primary-button {
   padding: 12px 18px;
   border: none;
-  border-radius: 8px;
-  background: #1f2937;
-  color: white;
+  border-radius: 9px;
+  background: var(--espresso);
+  color: #fffaf3;
   cursor: pointer;
   font-weight: 600;
+  transition: 0.18s ease;
 }
 
 .primary-button:hover {
-  background: #374151;
+  background: var(--coffee);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(61, 43, 31, 0.13);
 }
 
 
@@ -403,83 +495,93 @@ input {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 25px;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .stat-card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
+  padding: 19px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  box-shadow: 0 4px 14px rgba(61, 43, 31, 0.035);
 }
 
 .stat-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  background: #f3f4f6;
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  border-radius: 11px;
+  background: #f0e5d7;
+  color: var(--coffee);
+  font-size: 18px;
 }
 
 .stat-card span {
   display: block;
-  color: #6b7280;
-  font-size: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .stat-card strong {
   display: block;
-  font-size: 25px;
+  color: var(--espresso);
+  font-size: 24px;
 }
 
 
 /* =========================================================
-   RESERVATIONS
+   RESERVATIONS SECTION
    ========================================================= */
 
 .dashboard-section {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
   padding: 25px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(61, 43, 31, 0.035);
 }
 
 .section-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .section-header h2 {
   margin: 0;
-  font-size: 20px;
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--espresso);
+  font-size: 22px;
 }
 
 .section-header p {
   margin: 5px 0 0;
-  color: #6b7280;
+  color: var(--muted);
   font-size: 13px;
 }
 
 .reservation-count {
-  background: #f3f4f6;
-  padding: 7px 12px;
+  padding: 6px 11px;
   border-radius: 20px;
-  font-size: 12px;
-  color: #4b5563;
+  background: #f0e8de;
+  color: var(--coffee);
+  font-size: 11px;
+  font-weight: 600;
 }
 
 
-/* ===== TABLE ===== */
+/* =========================================================
+   TABLE
+   ========================================================= */
 
 .reservation-table-container {
   width: 100%;
@@ -492,67 +594,83 @@ input {
 }
 
 .reservation-table th {
-  background: #f9fafb;
-  color: #6b7280;
-  font-size: 12px;
+  background: #f8f3ec;
+  color: #81766e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .reservation-table th,
 .reservation-table td {
-  padding: 15px;
+  padding: 14px;
   text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #eee6dc;
 }
 
 .reservation-table td {
+  color: #5f554e;
   font-size: 13px;
 }
 
+.reservation-table td strong {
+  color: var(--espresso);
+}
+
+.reservation-table tbody tr {
+  transition: background 0.15s ease;
+}
+
 .reservation-table tbody tr:hover {
-  background: #fafafa;
+  background: #fcf9f5;
 }
 
 
-/* ===== STATUS ===== */
+/* =========================================================
+   STATUS
+   ========================================================= */
 
 .status-badge {
   display: inline-block;
   padding: 5px 9px;
   border-radius: 20px;
-  background: #dcfce7;
-  color: #166534;
-  font-size: 11px;
-  font-weight: 600;
+  background: #e7f1e9;
+  color: #47755c;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 
-/* ===== ACTION BUTTONS ===== */
+/* =========================================================
+   TABLE ACTIONS
+   ========================================================= */
 
 .edit-button,
 .delete-button {
-  padding: 7px 11px;
+  padding: 7px 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: 0.15s ease;
 }
 
 .edit-button {
-  background: #e5e7eb;
-  color: #1f2937;
-  margin-right: 6px;
+  margin-right: 5px;
+  background: #eee8e0;
+  color: var(--espresso);
 }
 
 .delete-button {
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #f8e6e3;
+  color: var(--danger);
 }
 
 .edit-button:hover,
 .delete-button:hover {
-  opacity: 0.75;
+  transform: translateY(-1px);
 }
 
 
@@ -561,19 +679,22 @@ input {
    ========================================================= */
 
 .empty-state {
+  padding: 55px 20px;
   text-align: center;
-  padding: 50px 20px;
-  color: #6b7280;
+  color: var(--muted);
 }
 
 .empty-icon {
-  font-size: 40px;
   margin-bottom: 10px;
+  font-size: 38px;
+  opacity: 0.75;
 }
 
 .empty-state h3 {
-  color: #1f2937;
-  margin-bottom: 5px;
+  margin: 0 0 5px;
+  color: var(--espresso);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 21px;
 }
 
 .empty-state p {
@@ -586,79 +707,75 @@ input {
    ========================================================= */
 
 .reservation-form-container {
-  max-width: 650px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  max-width: 680px;
+  padding: 32px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
 }
 
 .reservation-form-container h2 {
-  margin-top: 0;
-  font-size: 24px;
+  margin: 0;
+  color: var(--espresso);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
 }
 
 .reservation-form-container > p {
-  color: #6b7280;
+  margin: 7px 0 0;
+  color: var(--muted);
   font-size: 14px;
 }
 
 .reservation-form {
-  margin-top: 25px;
+  margin-top: 27px;
 }
 
 .reservation-form button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #1f2937;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.reservation-form button:hover {
-  background: #374151;
-}
-
-.reservation-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-
-/* ===== BACK BUTTON ===== */
-
-.back-button {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #4b5563;
-}
-
-.back-button:hover {
-  color: #111827;
+  width: auto;
+  min-width: 170px;
 }
 
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   BACK BUTTON
    ========================================================= */
 
-@media (max-width: 1000px) {
+.back-button {
+  margin-bottom: 20px;
+  border: none;
+  background: transparent;
+  color: var(--coffee);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.back-button:hover {
+  color: var(--espresso);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .sidebar {
-    width: 220px;
+    width: 225px;
+  }
+
+  .main-content {
+    padding: 30px;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .app-layout {
     display: block;
   }
@@ -689,10 +806,14 @@ input {
   }
 
   .auth-card {
-    padding: 28px 22px;
+    padding: 30px 23px;
   }
 
   .auth-container {
     padding: 15px;
+  }
+
+  .reservation-form-container {
+    padding: 24px;
   }
 }
